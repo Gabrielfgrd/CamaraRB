@@ -7,20 +7,26 @@ import Noticia from './Noticia';
 
 
 export default class CenaPrincipal extends Component{
-    
+  constructor(props) {
+    super(props);
+    this.state = { noticias: "" };
+}
+//link, tittle, dc:date
+componentWillMount(){
+   //requisição HTTP
+  var parseString = require('react-native-xml2js').parseString;
+  axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
+  .then(response => { 
+    parseString( response.data, function(err, result) {
+      const not = result["rdf:RDF"].data
 
-//componentWillMount(){
-  // requisição HTTP
-  //var parseString = require('react-native-xml2js').parseString;
-  //axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
-  //.then(response => { this.setState({ listaNoticias:  parseString( response.data, function (err, result) {
-    //    console.log(result);
-    //})
-  //});
+      this.setState({noticias: not})
+      console.log(this.state.noticias);
+    })
    
-//})
-  //.catch(() => {console.log('Erro ao recuperar os dados'); });
-//}
+})
+  .catch(() => {console.log('Erro ao recuperar os dados'); });
+}
 
     render() {
        return (
@@ -29,7 +35,10 @@ export default class CenaPrincipal extends Component{
         ANIMATED ={true}/>
 
         <BarraNavegacao />
-
+<View>
+   {/* <Noticia  titulo={this.state.noticias[0].tittle} /> */}
+   
+</View>
         
       </View>
        // <FlatList>

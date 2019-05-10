@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, ScrollView, View} from 'react-native';
+import {Platform, StyleSheet, Text, ScrollView, View, TouchableOpacity} from 'react-native';
 import axios from 'axios';
-
+//this.props.data   this.props.titulo
 export default class Noticia  extends Component{
-  
+    constructor(props) {
+        super(props);
+    }
   
 render(){
         return(
-            <Text>Detalhes da noticia...</Text> 
+            <TouchableOpacity>
+                <Text>{this.props.data}</Text>
+                <Text>{this.props.titulo}</Text>
+            </TouchableOpacity>
         );
     }
 }

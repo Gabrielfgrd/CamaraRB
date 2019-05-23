@@ -30,11 +30,12 @@ componentWillMount(){
 
     render() {
        return (
+
      <View>
         <StatusBar backgroundColor = '#CCC'
         ANIMATED ={true}/>
 
-        <BarraNavegacao />
+        //<BarraNavegacao />
 <View>
    {/* <Noticia  titulo={this.state.noticias[0].tittle} /> */}
    
@@ -49,4 +50,4 @@ componentWillMount(){
 }
 
          
-         
+

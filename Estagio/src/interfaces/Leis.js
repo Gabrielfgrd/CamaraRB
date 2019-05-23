@@ -4,7 +4,9 @@ import {Platform, StyleSheet, Text, View,Button, ScrollView} from 'react-native'
 
 
 export default class Leis extends Component{
-   
+   static navigationOptions={
+       drawerLablel: 'Main Screen',
+   }
     render(){
         return(
             <ScrollView >

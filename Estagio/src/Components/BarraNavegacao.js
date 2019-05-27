@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
-import {Drawer, Container, Header, Content,Button } from 'native-base';
 
 export default class BarraNavegacao extends Component{
   render() {

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image, StatusBar, FlatList} from 'react-native';
 
-import BarraNavegacao from './BarraNavegacao';
+import BarraNavegacao from '../Components/BarraNavegacao';
 import axios from 'axios';
-import Noticia from './Noticia';
+import Noticia from '../Components/Noticia';
+import {Actions} from 'react-native-router-flux';
 
 
 export default class CenaPrincipal extends Component{
@@ -35,7 +36,7 @@ componentWillMount(){
         <StatusBar backgroundColor = '#CCC'
         ANIMATED ={true}/>
 
-        //<BarraNavegacao />
+  
 <View>
    {/* <Noticia  titulo={this.state.noticias[0].tittle} /> */}
    

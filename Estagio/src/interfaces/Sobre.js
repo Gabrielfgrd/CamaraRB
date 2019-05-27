@@ -11,7 +11,7 @@ export default class Sobre extends React.Component {
                 </View>
                 <View>
                     <Text style={styles.textoPadrao}>
-                        A CamaraRb é uma plataforma digital no qual está presente informações pertinentes sobre a Câmara Municipal de Rio Branco atraves de um aplicativo de tecnologia mobile
+                        A CamaraRb é uma plataforma digital, no qual, está presente informações pertinentes sobre a Câmara Municipal de Rio Branco, através de um aplicativo de tecnologia mobile.
                     </Text>
                 </View>
 

@@ -1,23 +1,28 @@
 import React from 'react';
-import {View, Text, TextInput, Button, TouchableHighlight} from 'react-native';
-import {Action} from 'react-native-router-flux';
+import {View, Text, TextInput, TouchableHighlight,TouchableOpacity} from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import {styles, colors} from '../Components/layout';
 
 
 export default props => (
 
 <View style ={{ flex: 1, padding: 10}}>
-    <View  style ={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style ={{fontSize: 25}}>Login</Text>
-    </View>
-    <View style ={{flex: 2}}>
-        <TextInput style ={{fontSize: 20, height: 45}} placeholder='E-mail'/>
-        <TextInput style ={{fontSize: 20, height: 45}} placeholder='Senha'/>
-       <TouchableHighlight onPress={() => Action.TelaCadastroUsuario() }>
-        <Text style ={{fontSize: 20}} >Ainda não tem cadastro? Cadastre-se</Text>
+    <View style ={{flex: 3, alignItems: 'center', justifyContent: 'center', marginTop: 60}}>
+        <TextInput  style={styles.textInput} placeholder='E-mail'/>
+        <TextInput style={styles.textInput} placeholder='Senha'/>
+       <View style ={{flex: 3, alignItems: 'center', justifyContent: 'center'}} >
+        <Text style={styles.textoPadrao} >Ainda não tem cadastro? </Text>
+       <TouchableHighlight onPress={() => Actions.TelaCadastroUsuario() }>
+        <Text style ={{fontSize: 20, textDecorationLine: 'underline', color: '#000000'} }>Cadastre-se</Text>
         </TouchableHighlight>
+        </View>
     </View>
-    <View style ={{flex: 2}}>
-        <Button title= "Acessar" color = 'rgb(43, 83, 142)' onPress={() => false}/>
+    <View style ={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
+        <TouchableOpacity
+            style={styles.botao}
+            onPress={false}>
+            <Text style={styles.textoBotao}> Entrar </Text>
+        </TouchableOpacity>
     </View>
 </View>
 );

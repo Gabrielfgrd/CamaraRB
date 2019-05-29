@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
 		marginTop: 10,
 		fontSize: 20,
 		height: 45,
-		width: 250
+		width: 400
 	},
 	textoPadrao: {
 		fontSize: 20,
@@ -74,6 +74,12 @@ export const styles = StyleSheet.create({
 		marginLeft: 30,
 		marginTop: 20
 	},
+	titulos:{
+		fontSize: 20, 
+		justifyContent: 'center',
+		alignItems: 'center',
+		fontWeight: 'bold'
+},
 	textArea: {
 		textAlign: 'center',
 		padding: 5,
@@ -94,6 +100,23 @@ export const styles = StyleSheet.create({
 		height: 200,
 		width: 300,
 		color: colors.preto,
-		backgroundColor: colors.branco
-	}
+	},
+	painel: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		marginHorizontal: 30
+},
+botaoLeis: {
+	borderTopRightRadius: 10,
+	borderTopLeftRadius: 10,
+	borderBottomRightRadius: 10,
+	borderBottomLeftRadius: 10,
+	marginTop: 20,
+	height: 50,
+	width: 100,
+	justifyContent: 'center',
+	alignItems: 'center',
+			backgroundColor: colors.azul
+	},
+	
 });

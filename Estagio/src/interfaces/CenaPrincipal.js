@@ -1,54 +1,52 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image, StatusBar, FlatList} from 'react-native';
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View, Image, StatusBar, FlatList } from 'react-native';
 
 import BarraNavegacao from '../Components/BarraNavegacao';
 import axios from 'axios';
 import Noticia from '../Components/Noticia';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
+var caralho;
+function organizaNoticias(DicionarioItem) {
+  var vetNoticias = [];
+  for (var i = 0; i < DicionarioItem.length; i++) {
+    vetNoticias[i] = { titulo: DicionarioItem[i]["title"][0], link: DicionarioItem[i]["link"][0], data: DicionarioItem[i]["link"][0]["dc:date"] }
+  }
+  return vetNoticias;
+}
 
-
-export default class CenaPrincipal extends Component{
+export default class CenaPrincipal extends Component {
   constructor(props) {
     super(props);
-    this.state = { noticias: "" };
-}
-//link, tittle, dc:date
-componentWillMount(){
-   //requisição HTTP
-  var parseString = require('react-native-xml2js').parseString;
-  axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
-  .then(response => { 
-    parseString( response.data, function(err, result) {
-      const not = result["rdf:RDF"].data
-
-      this.setState({noticias: not})
-      console.log(this.state.noticias);
-    })
-   
-})
-  .catch(() => {console.log('Erro ao recuperar os dados'); });
-}
-
-    render() {
-       return (
-
-     <View>
-        <StatusBar backgroundColor = '#CCC'
-        ANIMATED ={true}/>
-
-  
-<View>
-   {/* <Noticia  titulo={this.state.noticias[0].tittle} /> */}
-   
-</View>
-        
-      </View>
-       // <FlatList>
-        // listaNoticias={this.state.listaNoticias}
-       //</FlatList> 
-      );
-    }
-}
-
+    this.state = { noticias: [] };
+  }
+  //link, tittle, dc:date
+  componentWillMount() {
+    //requisição HTTP
+    var parseString = require('react-native-xml2js').parseString;
+    axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
+      .then(response => {
+        parseString(response.data, function (err, result) {
+          //captura o vetor de noticias e armazena na constatne
+          const aux = organizaNoticias(result["rdf:RDF"]["item"]);
+          caralho = true;
          
+        })
+
+      })
+      .catch(() => { console.log('Erro ao recuperar os dados'); });
+  }
+
+  render() {
+    return (
+
+      <View>
+      </View>
+      // <FlatList>
+      // listaNoticias={this.state.listaNoticias}
+      //</FlatList> 
+    );
+  }
+}
+
+
 

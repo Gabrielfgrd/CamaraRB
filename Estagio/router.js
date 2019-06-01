@@ -3,12 +3,14 @@ import { Router, Scene, Actions, ActionConst, Drawer } from 'react-native-router
 //Inportações das interface
 import CenaPrincipal from './src/interfaces/CenaPrincipal'
 import Menu from './src/interfaces/Menu';
+import MenuInterno from './src/interfaces/MenuInterno';
 import Leis from './src/interfaces/Leis';
 import TelaCadastroProblema from './src/interfaces/TelaCadastroProblema';
 import TelaLogin from './src/interfaces/TelaLogin';
 import TelaCadastroUsuario from './src/interfaces/TelaCadastroUsuario'
 import SAPL from './src/interfaces/SAPL';
 import Sobre from './src/interfaces/Sobre';
+
 
 
 export default class routes extends React.Component {
@@ -22,7 +24,7 @@ export default class routes extends React.Component {
 					headerLayoutPreset='center'>
 					<Drawer
 						hideNavBar
-						key="Menu"
+						key="MenuExterno"
 						contentComponent={Menu}
 						drawerWidth={300}
 						drawerPosition="left"
@@ -31,7 +33,21 @@ export default class routes extends React.Component {
 					>
 						<Scene
 							title="Câmara Municipal"
-							key='CenaPrincipal'
+							key='CenaPrincipalExterna'
+							component={CenaPrincipal} />
+					</Drawer>
+					<Drawer
+						hideNavBar
+						key="MenuInterno"
+						contentComponent={MenuInterno}
+						drawerWidth={300}
+						drawerPosition="left"
+						disableGestures={false}
+						type={ActionConst.RESET}
+					>
+						<Scene
+							title="Câmara Municipal"
+							key='CenaPrincipalInterna'
 							component={CenaPrincipal} />
 					</Drawer>
 					<Scene
@@ -58,8 +74,9 @@ export default class routes extends React.Component {
 						title='Sobre'
 						key='Sobre'
 						component={Sobre} />
-
+	
 				</Scene>
+				
 			</Router>
 		);
 	}

@@ -1,63 +1,48 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, TextInput } from 'react-native';
+import {ScrollView, View , TextInput, TouchableOpacity,Text} from 'react-native';
+import { connect } from 'react-redux';
+import {styles, colors} from '../Components/layout';
 
-class TelaAlteraDadosUsuario extends React.Component {
+export default class TelaAlteraDadosUsuario extends React.Component {
+	render(){
+		return(
+    <ScrollView style={{ padding: 10}}>
+        <View style={{ justifyContent: 'center', marginTop:15}}>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao} >Nome</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "Nome"/>
+			</View>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao}  >E-mail</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "E-mail"/>
+			</View>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao} >Endereço</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "Endereço"/>
+			</View>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao} >CEP</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "CEP"/>
+			</View>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao} >Senha</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "Senha"/>
+			</View>
+			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
+				<Text style={styles.textoPadrao} >Confirmação de Senha</Text>
+				<TextInput style={styles.textInput} editable = {false} placeholder = "Confirmação de Senha"/>
+			</View>
+        </View>
+        <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 40}}>
+            <TouchableOpacity
+                style={styles.botao}
+                onPress={false}>
+                <Text style={styles.textoBotao}> Confirmar </Text>
+            </TouchableOpacity>
+        </View>
+    </ScrollView>
 
-    render() {
-		return (
-            <ScrollView>
-				<View style={{ padding: 20 }}>
-					<View style={{ marginTop: 30, justifyContent: 'center', alignItems: 'center' }}>
-						<Text style={styles.textoPadrao}>Ok, errou alguma coisa?</Text>
-						<TextInput style={styles.textInput} placeholder="Nome" />
-						<TextInput style={styles.textInput} placeholder="Sobrenome" />
-						<TextInputMask
-							 style={styles.textInput} placeholder="CPF"
-							mask={"[000].[000].[000]-[00]"}
-						/>
-						<TextInput  style={styles.textInput} placeholder="E-mail" />
-						<TextInput  style={styles.textInput} placeholder="Nome de usuário" />
-						<Botao texto='Confirmar' onPress={() => {}} />
-					</View>
-				</View>
-			</ScrollView>
-        );
-    }
+		);	
+	}
+	
 }
-
-export const styles = StyleSheet.create({
-    textoPadrao: {
-        fontSize: 20,
-        color: '#000000', 
-        justifyContent: 'center',
-         alignItems: 'center',
-         marginRight: 15,
-         marginLeft: 15
-
-    },
-    titulo:{
-        fontSize: 30,
-        fontWeight: 'bold'
-    },
-    textInput: {
-		textAlign: 'center',
-		padding: 5,
-		borderTopRightRadius: 10,
-		borderTopLeftRadius: 10,
-		borderBottomRightRadius: 10,
-		borderBottomLeftRadius: 10,
-		borderBottomColor: '#000',
-		borderTopColor: '#000',
-		borderLeftColor: '#000',
-		borderRightColor: '#000',
-		borderBottomWidth: 1,
-		borderTopWidth: 1,
-		borderLeftWidth: 1,
-		borderRightWidth: 1,
-		marginTop: 10,
-		fontSize: 20,
-		height: 45,
-        width: 400
-    },
-}
-);

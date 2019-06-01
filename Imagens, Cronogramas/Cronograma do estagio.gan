@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-04-14" view-index="2" gantt-divider-location="495" resource-divider-location="300" version="2.8.10" locale="pt_BR">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-05-26" view-index="0" gantt-divider-location="495" resource-divider-location="300" version="2.8.10" locale="pt_BR">
     <description/>
     <view zooming-state="default:4" id="gantt-chart">
         <field id="tpd3" name="Nome" width="247" order="0"/>
@@ -40,7 +40,11 @@
         <task id="29" name="Reuniao com a Orientadora do Estagio" meeting="false" start="2019-04-24" duration="1" complete="0" expand="true"/>
         <task id="14" name="Corrigir o Documento de requisito de acordo com o cliente" color="#8cb6ce" meeting="false" start="2019-04-25" duration="2" complete="0" thirdDate="2019-04-25" thirdDate-constraint="0" expand="true"/>
         <task id="17" name="Fazer os prototipos" meeting="false" start="2019-04-29" duration="1" complete="0" expand="true"/>
-        <task id="20" name="Criar as telas e tentar fazer testess de interação com o site da Camara" color="#8cb6ce" meeting="false" start="2019-04-30" duration="8" complete="0" thirdDate="2019-04-09" thirdDate-constraint="0" expand="true"/>
+        <task id="20" name="Criar as telas e tentar fazer testes de interação com o site da Camara" color="#8cb6ce" meeting="false" start="2019-04-30" duration="8" complete="0" thirdDate="2019-04-09" thirdDate-constraint="0" expand="true"/>
+        <task id="31" name="Criar novas telas" color="#8cb6ce" meeting="false" start="2019-05-10" duration="20" complete="0" thirdDate="2019-04-15" thirdDate-constraint="0" expand="true"/>
+        <task id="32" name="Inserir navegação entre telas" color="#8cb6ce" meeting="false" start="2019-05-22" duration="12" complete="0" thirdDate="2019-04-15" thirdDate-constraint="0" expand="true"/>
+        <task id="34" name="Refatoração das telas" meeting="false" start="2019-04-15" duration="1" complete="0" expand="true"/>
+        <task id="35" name="Inserindo as interações com o BD" color="#8cb6ce" meeting="false" start="2019-04-15" duration="1" complete="0" thirdDate="2019-04-15" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>

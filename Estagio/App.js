@@ -9,18 +9,17 @@ import {Provider} from 'react-redux'
 import reducers from './reducers'
 
 //importar o componente barra navegação
-import Leis from './src/interfaces/Leis';
-import CenaPrincipal from './src/interfaces/CenaPrincipal';
-import TelaCadastroProblema from './src/interfaces/TelaCadastroProblema';
+import TelaConfirmacaoCadastro from './src/interfaces/TelaConfirmacaoCadastro';
 
 
 export default class Estagio extends Component{
   render() {
     return (
     
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-				<Routes />
-			</Provider>
+      //<TelaConfirmacaoCadastro/>
+       <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+			 	<Routes />
+			 </Provider>
      
     );
   }

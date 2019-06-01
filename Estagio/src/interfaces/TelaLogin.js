@@ -20,7 +20,7 @@ export default props => (
     <View style ={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
         <TouchableOpacity
             style={styles.botao}
-            onPress={false}>
+            onPress={()=>{Actions.MenuInterno()}}>
             <Text style={styles.textoBotao}> Entrar </Text>
         </TouchableOpacity>
     </View>

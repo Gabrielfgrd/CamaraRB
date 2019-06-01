@@ -118,5 +118,6 @@ botaoLeis: {
 	alignItems: 'center',
 			backgroundColor: colors.azul
 	},
+
 	
 });

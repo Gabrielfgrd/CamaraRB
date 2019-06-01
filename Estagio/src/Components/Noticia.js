@@ -9,10 +9,12 @@ export default class Noticia  extends Component{
   
 render(){
         return(
+            <View>
             <TouchableOpacity>
                 <Text>{this.props.data}</Text>
                 <Text>{this.props.titulo}</Text>
             </TouchableOpacity>
+            </View>
         );
     }
 }

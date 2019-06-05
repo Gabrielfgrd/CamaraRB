@@ -17,7 +17,11 @@ export default class MenuInterno extends React.Component {
                <View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
 					 onPress={() => {  }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>  </Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Conta </Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
+					 onPress={() => {  }}>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Senha </Text>
 					</TouchableOpacity>
                </View>
 
@@ -52,6 +56,11 @@ export default class MenuInterno extends React.Component {
 					</TouchableOpacity>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {Actions.MenuExterno() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', textDecorationLine: 'underline' }}> Sair</Text>
+					</TouchableOpacity>
+				</View>
+				<View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 30, marginBottom:30}}>
+				<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', textDecorationLine: 'underline' }}> Desativar sua conta</Text>
 					</TouchableOpacity>
 				</View>
             </ScrollView>

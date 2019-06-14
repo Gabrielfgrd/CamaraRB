@@ -9,14 +9,14 @@ import {Provider} from 'react-redux'
 import reducers from './reducers'
 
 //importar o componente barra navegação
-import TelaConfirmacaoCadastro from './src/interfaces/TelaConfirmacaoCadastro';
+// import TelaALteraDadosUsuario from './src/interfaces/TelaAlteraDadosUsuario';
 
 
 export default class Estagio extends Component{
   render() {
     return (
     
-      //<TelaConfirmacaoCadastro/>
+  // <TelaALteraDadosUsuario/>
        <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
 			 	<Routes />
 			 </Provider>

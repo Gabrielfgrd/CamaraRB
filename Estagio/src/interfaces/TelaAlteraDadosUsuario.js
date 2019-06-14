@@ -24,14 +24,6 @@ export default class TelaAlteraDadosUsuario extends React.Component {
 				<Text style={styles.textoPadrao} >CEP</Text>
 				<TextInput style={styles.textInput} editable = {false} placeholder = "CEP"/>
 			</View>
-			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
-				<Text style={styles.textoPadrao} >Senha</Text>
-				<TextInput style={styles.textInput} editable = {false} placeholder = "Senha"/>
-			</View>
-			<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:20}}>
-				<Text style={styles.textoPadrao} >Confirmação de Senha</Text>
-				<TextInput style={styles.textInput} editable = {false} placeholder = "Confirmação de Senha"/>
-			</View>
         </View>
         <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 40}}>
             <TouchableOpacity

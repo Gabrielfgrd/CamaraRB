@@ -10,16 +10,19 @@ import reducers from './reducers'
 
 //importar o componente barra navegação
 // import TelaALteraDadosUsuario from './src/interfaces/TelaAlteraDadosUsuario';
-
+// import Camera from './src/Components/Camera';
+  import Lista_Materia from './src/interfaces/Lista_Materia';
 
 export default class Estagio extends Component{
   render() {
     return (
     
+      <Lista_Materia/>
+      // <Camera/>
   // <TelaALteraDadosUsuario/>
-       <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-			 	<Routes />
-			 </Provider>
+      //  <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+			//  	<Routes />
+			//  </Provider>
      
     );
   }

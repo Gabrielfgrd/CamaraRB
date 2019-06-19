@@ -16,7 +16,7 @@ export default class MenuInterno extends React.Component {
 
                <View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
-					 onPress={() => {  }}>
+					 onPress={() => { }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Conta </Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}

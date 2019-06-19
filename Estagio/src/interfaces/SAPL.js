@@ -4,6 +4,7 @@ import {styles, colors} from '../Components/layout';
 
 export default class SAPL extends React.Component {
 
+   
     render(){
         return(
 
@@ -24,8 +25,6 @@ export default class SAPL extends React.Component {
                 <View style={{flex: 3, justifyContent: 'center', alignItems: 'center', marginTop: 15}}>
                     <Text style={styles.textoPadrao}>Nº. do Protocolo</Text>
                     <TextInput style= {styles.textInput} placeholder='Nº. do Protocolo'/>
-                    <Text style={styles.textoPadrao}>Tipo de Matéria Legislativa:</Text>
-						<Picker></Picker>
                 </View>
                 <View style={{flex: 1,  justifyContent: 'center', alignItems: 'center', marginTop: 15}}>
                     <Text style={styles.textoPadrao}>Autor</Text>

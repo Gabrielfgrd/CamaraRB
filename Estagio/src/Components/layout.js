@@ -118,6 +118,15 @@ botaoLeis: {
 	alignItems: 'center',
 			backgroundColor: colors.azul
 	},
-
+	textoInformacaoValidacao: {
+		alignItems: 'center',
+		fontSize: 15,
+		color: '#000000'
+	},
+	textoAviso: {
+		alignItems: 'center',
+		fontSize: 15,
+		color: '#FF0000'
+	},
 	
 });

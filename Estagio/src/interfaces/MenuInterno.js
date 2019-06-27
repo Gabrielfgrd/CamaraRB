@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 //import { connect } from 'react-redux';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Foundation from 'react-native-vector-icons/Foundation';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import { colors } from '../Components/layout'
 
 
 export default class MenuInterno extends React.Component {
@@ -13,46 +17,51 @@ export default class MenuInterno extends React.Component {
                <Text style={{ fontSize: 40, color: '#FFFFFF',marginLeft: 25 }}>Câmara Municipal</Text>
                </View>
 
-
                <View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
-					 onPress={() => { }}>
+					 onPress={() => { Actions.TelaAlteraDadosUsuario() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Conta </Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
-					 onPress={() => {  }}>
+					 onPress={() => { Actions.TelaAlteraSenhaUsuario() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Senha </Text>
 					</TouchableOpacity>
                </View>
-
 
                <View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
 					
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}}
 					 onPress={() => { Actions.Leis() }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Leis </Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<Ionicons name="md-paper" size={20} color={colors.branco} /> Leis </Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.SAPL() }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>Sistema de Apoio ao Processo Legislativo</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<Foundation name="book-bookmark" size={20} color={colors.branco} /> Sistema de Apoio ao Processo Legislativo</Text>
 					</TouchableOpacity>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.TelaCadastroProblema() }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>Cadastrar Problemas</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<MaterialCommunityIcons name="tooltip-plus-outline" size={20} color={colors.branco} /> Cadastrar Problemas</Text>
 					</TouchableOpacity>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {  }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>Vídeos</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<Foundation name="play-video" size={20} color={colors.branco} /> Vídeos</Text>
 					</TouchableOpacity>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>Fotos</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<MaterialCommunityIcons name="image-filter" size={20} color={colors.branco} /> Fotos</Text>
 					</TouchableOpacity>
 					
 				
 				</View>
 				<View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.Sobre()}}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Sobre</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<Ionicons name="ios-information-circle-outline" size={20} color={colors.branco} /> Sobre</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
-						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> Câmara ao Vivo</Text>
+						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
+						<MaterialIcons name="live-tv" size={20} color={colors.branco} /> Câmara ao Vivo</Text>
 					</TouchableOpacity>
                     <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {Actions.MenuExterno() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', textDecorationLine: 'underline' }}> Sair</Text>

@@ -5,19 +5,24 @@ import BarraNavegacao from '../Components/BarraNavegacao';
 import axios from 'axios';
 import Noticia from '../Components/Noticia';
 import { Actions } from 'react-native-router-flux';
-var caralho;
+
+
 function organizaNoticias(DicionarioItem) {
   var vetNoticias = [];
-  for (var i = 0; i < DicionarioItem.length; i++) {
-    vetNoticias[i] = { titulo: DicionarioItem[i]["title"][0], link: DicionarioItem[i]["link"][0], data: DicionarioItem[i]["link"][0]["dc:date"] }
-  }
-  return vetNoticias;
+  parseString(DicionarioItem, function (err, result) {
+    //captura o vetor de noticias e armazena na constatne
+     //aux = organizaNoticias(result["rdf:RDF"]["item"]);
+     for (var i = 0; i < result["rdf:RDF"]["item"].length; i++) {
+       vetNoticias[i] = { titulo: result["rdf:RDF"]["item"][i]["title"][0], link: result["rdf:RDF"]["item"][i]["link"][0], data: result["rdf:RDF"]["item"][i]["link"][0]["dc:date"] }
+     }
+     return vetNoticias;
+  })
 }
 
 export default class CenaPrincipal extends Component {
   constructor(props) {
     super(props);
-    this.state = { noticias: [] };
+    this.state = { noticias: '' };
   }
   //link, tittle, dc:date
   componentWillMount() {
@@ -25,15 +30,10 @@ export default class CenaPrincipal extends Component {
     var parseString = require('react-native-xml2js').parseString;
     axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
       .then(response => {
-        parseString(response.data, function (err, result) {
-          //captura o vetor de noticias e armazena na constatne
-          const aux = organizaNoticias(result["rdf:RDF"]["item"]);
-          caralho = true;
-         
-        })
-
+        this.setState({noticias: response.data})
       })
       .catch(() => { console.log('Erro ao recuperar os dados'); });
+     
   }
 
   render() {

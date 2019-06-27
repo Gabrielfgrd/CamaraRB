@@ -1,6 +1,9 @@
 import React from 'react';
-import { Text, View, ScrollView, Picker, TouchableOpacity, TextInput} from 'react-native';
+import { Text, View, ScrollView, Picker, TouchableOpacity, TextInput, TouchableHighlight} from 'react-native';
 import {styles, colors} from '../Components/layout';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+
 
 export default class SAPL extends React.Component {
 
@@ -32,11 +35,12 @@ export default class SAPL extends React.Component {
                 </View>
                 <View style={{flex: 1, marginTop: 30,  justifyContent: 'center', alignItems: 'center', marginBottom: 35}}> 
                     <TouchableOpacity
-                        OnPress={ ()=>{ }}
+                        onPress={() => {Actions.Lista_Materia() }} 
                         style={styles.botao}>
                         <Text style={styles.textoBotao}> Pesquisar </Text>
                     </TouchableOpacity>
                 </View>
+                
             </ScrollView>
 
         );

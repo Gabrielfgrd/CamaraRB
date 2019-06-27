@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import{View, Text} from 'react-native';
+import{ScrollView} from 'react-native';
 import axios from 'axios';
 import Materia_Legislativa from './Materia_Legislativa';
+
 
 
 
@@ -18,11 +19,9 @@ export default class Lista_Materia extends React.Component {
 
     componentWillMount() {
         // requisição HTTP
-        axios.get('https://sapl.jatai.go.leg.br/api/docs/swagger/?format=openapi')
-        .then(response => {
-            console.log(response.data.definitions);})
-            // this.setState({tipo_materia: response.data});})
-        .catch (() => {console.log('Erro ao recuperar os dados')});
+        axios.get('https://sapl.riobranco.ac.leg.br/api/materia/materialegislativa/')
+        .then(response => { this.setState({tipo_materia: response.data.results }); })
+        .catch( () => {console.log('Erro ao recuperar os dados')} );
     }
 
 
@@ -38,9 +37,9 @@ export default class Lista_Materia extends React.Component {
 
     render(){
         return (
-            <View>
-              
-            </View>
+            <ScrollView>
+              {this.state.tipo_materia.map(item =>   ( <Materia_Legislativa key={item.ementa} materia={item} /> ) ) }
+            </ScrollView>
         );
     }
 

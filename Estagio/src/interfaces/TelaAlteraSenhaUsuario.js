@@ -3,7 +3,7 @@ import {ScrollView, View , TextInput, TouchableOpacity,Text} from 'react-native'
 import { connect } from 'react-redux';
 import {styles, colors} from '../Components/layout';
 
-export default class TelaAlteraDadosUsuario extends React.Component {
+class TelaAlteraSenhaUsuario extends React.Component {
 	render(){
 		return(
     <ScrollView style={{ padding: 10}}>
@@ -34,3 +34,10 @@ export default class TelaAlteraDadosUsuario extends React.Component {
 	}
 	
 }
+const mapStateToProps = state => (
+	{
+		
+	}
+)
+export default connect(mapStateToProps, {
+})(TelaAlteraSenhaUsuario);

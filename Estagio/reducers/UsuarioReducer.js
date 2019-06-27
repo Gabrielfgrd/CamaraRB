@@ -1,160 +1,84 @@
 import _ from 'lodash';
+import {constUsuario} from '../constantes'
 
 const INITIAL_STATE = {
-    //array com todos os problemas
-    problemas: [],
-    //array com os tipos de problemas
-    tiposDeProblemas: [],
-    //problema
+    //valores normais
     id: '',
-    autorId: '',
-    tipoDeProblemaId: '',
-    descricao: '',
-    dataCriacao: '',
-    localizacao: { latitude: null, longitude: null },
-    //edicao
-    ediId: '',
-    ediAutorID: '',
-    ediTipoDeProblemaId: '',
-    ediDescricao: '',
-    ediDataCriacao: '',
-    ediLocalizacao: { latitude: null, longitude: null },
-    //Dados extras
-    nomeAutor: '',
-    tituloTipoProblema: '',
-    ediTituloTipoProblema: '',
-    //Denuncias do problema
-    denuncias: null,
-    avaliacoes: null
+    nome: 'Teste',
+    endereco: 'Rua do Teste',
+    cpf: '11111111111',
+    email: 'teste@teste.com',
+    senha: '123456',
+    senha2: '123456',
+    //valores de edição
+    ediNome: '',
+    ediEndereco: '',
+    ediCpf: '',
+    ediEmail: '',
+    ediSenha: '',
+    ediSenha2: '',
 }
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'modifica_problemas':
-            return { ...state, problemas: action.payload }
-        case 'modifica_tiposDeProblemas':
-            return { ...state, tiposDeProblemas: action.payload }
-        case 'modifica_id':
-            return { ...state, id: action.payload }
-        case 'modifica_autorId':
-            return { ...state, autorId: action.payload }
-        case 'modifica_tipoDeProblemaId':
-            return { ...state, tipoDeProblemaId: action.payload }
-        case 'modifica_descricao':
-            return { ...state, descricao: action.payload }
-        case 'modifica_dataCriacao':
-            return { ...state, dataCriacao: action.payload }
-        case 'modifica_localizacao':
-            return { ...state, localizacao: action.payload }
-        case 'modifica_ediId':
-            return { ...state, ediId: action.payload }
-        case 'modifica_ediAutorId':
-            return { ...state, ediAutorID: action.payload }
-        case 'modifica_ediTipoDeProblemaId':
-            return { ...state, ediTipoDeProblemaId: action.payload }
-        case 'modifica_ediDescricao':
-            return { ...state, ediDescricao: action.payload }
-        case 'modifica_ediDataCriacao':
-            return { ...state, ediDataCriacao: action.payload }
-        case 'modifica_ediLocalizacao':
-            return { ...state, ediLocalizacao: action.payload }
-        case 'modifica_nomeAutor':
-            return { ...state, nomeAutor: action.payload }
-        case 'modifica_tituloTipoProblema':
-            return { ...state, tituloTipoProblema: action.payload }
-        case 'modifica_ediTituloTipoProblema':
-            return { ...state, ediTituloTipoProblema: action.payload }
-
-        case 'limpa_dados_problema':
+        //modificação de valores normais
+        case constUsuario.modificaNome:
+            return { ...state, nome: action.payload }
+        case constUsuario.modificaEndereco:
+            return { ...state, endereco: action.payload }
+        case constUsuario.modificaCpf:
+            return { ...state, cpf: action.payload }
+        case constUsuario.modificaEmail:
+            return { ...state, email: action.payload }
+        case constUsuario.modificaSenha:
+            return { ...state, senha: action.payload }
+        case constUsuario.modificaSenha2:
+            return { ...state, senha2: action.payload }
+        //modificação de valores de edição
+        case constUsuario.modificaEdiNome:
+            return { ...state, ediNome: action.payload }
+        case constUsuario.modificaEdiEndereco:
+            return { ...state, ediEndereco: action.payload }
+        case constUsuario.modificaEdiCpf:
+            return { ...state, ediCpf: action.payload }
+        case constUsuario.modificaEdiEmail:
+            return { ...state, ediEmail: action.payload }
+        case constUsuario.modificaEdiSenha:
+            return { ...state, ediSenha: action.payload }
+        case constUsuario.modificaEdiSenha2:
+            return { ...state, ediSenha2: action.payload }
+        //autenticação de usuario
+        case constUsuario.autenticacaoSucesso:
             return {
                 ...state,
-                id: '',
-                autorId: '',
-                tipoDeProblemaId: '',
-                descricao: '',
-                dataCriacao: '',
-                localizacao: { latitude: null, longitude: null },
-                nomeAutor: '',
-                tituloTipoProblema: '',
+               nome: state.ediNome,
+               endereco: state.ediEndereco,
+               cpf: state.ediCpf,
+               email: state.ediEmail,
+               senha: state.ediSenha,   
+               senha2: state.ediSenha2,
             }
-        case 'limpa_dados_problemaEdicao':
+        case constUsuario.igualaDadosEdicao:
             return {
                 ...state,
-                ediId: '',
-                ediAutorID: '',
-                ediTipoDeProblemaId: '',
-                ediDescricao: '',
-                ediDataCriacao: '',
-                ediLocalizacao: { latitude: null, longitude: null },
-                ediTituloTipoProblema: ''
+                ediNome: state.nome,
+                ediEndereco: state.endereco,
+                ediCpf: state.cpf,
+                ediEmail: state.email,
+                ediSenha: state.senha,
+                ediSenha2: state.senha2,
             }
-        case 'limpa_todos_dadosProblema':
+            case 'atenticacao_sucesso':
             return {
                 ...state,
-                id: '',
-                autorId: '',
-                tipoDeProblemaId: '',
-                descricao: '',
-                dataCriacao: '',
-                localizacao: { latitude: null, longitude: null },
-                //edicao
-                ediId: '',
-                ediAutorID: '',
-                ediTipoDeProblemaId: '',
-                ediDescricao: '',
-                ediDataCriacao: '',
-                ediLocalizacao: { latitude: null, longitude: null },
-                //extras
-                nomeAutor: '',
-                tituloTipoProblema: '',
-                ediTituloTipoProblema: ''
-            }
-        case 'inicia_edicaoProblema':
-            return {
-                ...state,
-                ediId: state.id,
-                ediAutorID: state.autorId,
-                ediTipoDeProblemaId: state.tipoDeProblemaId,
-                ediDescricao: state.descricao,
-                ediDataCriacao: state.dataCriacao,
-                ediLocalizacao: {latitude: state.localizacao.latitude, longitude: state.localizacao.longitude},
-                ediTituloTipoProblema: action.tituloTipoProblema
-            }
-        case 'carregamento_problema_sucesso':
-            state.denuncias = _.values(action.payload.denuncias)   
-            state.avaliacoes = _.values(action.payload.avaliacoes)
-        return {
-                ...state,
-                id: action.payload.id,
-                autorId: action.payload.autorId,
-                tipoDeProblemaId: action.payload.tipoDeProblemaId,
-                descricao: action.payload.descricao,
-                dataCriacao: action.payload.dataCriacao,
-                localizacao: action.payload.localizacao,
-
-
-                nomeAutor: action.nomeAutor,
-                tituloTipoProblema: action.tituloTipo
-            }
-        case 'limpa_todos_dadosProblema_exeto':
-            return {
-                ...state,
-                id: '',
-                autorId: '',
-                tipoDeProblemaId: '',
-                descricao: '',
-                dataCriacao: '',
-                //edicao
-                ediId: '',
-                ediAutorID: '',
-                ediTipoDeProblemaId: '',
-                ediDescricao: '',
-                ediDataCriacao: '',
-                ediLocalizacao: { latitude: null, longitude: null },
-                //extras
-                nomeAutor: '',
-                tituloTipoProblema: '',
-                ediTituloTipoProblema: ''
+                id: action.id,
+                endereco: action.payload.endereco,
+                nome: action.payload.nome,
+                cpf: action.payload.cpf,
+                email: action.email,
+                senha: '',
+                senha2: '',
             }
     }
+    
     return state;
 }

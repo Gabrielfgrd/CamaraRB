@@ -25,7 +25,7 @@ class TelaLogin extends React.Component {
                     <TextInput style={styles.textInput} value={this.props.email} placeholder = "E-mail" onChangeText={texto => this.props.modificaEmail(texto)}/>
                     <Text style={styles.textoPadrao} >Senha</Text>
                     <TextInput style={styles.textInput} value={this.props.senha} secureTextEntry placeholder = "Senha" onChangeText={texto => this.props.modificaSenha(texto)}/>
-                <View style ={{flex: 3, alignItems: 'center', justifyContent: 'center'}} >
+                <View style ={{flex: 3, alignItems: 'center', justifyContent: 'center', manginTop: 30}} >
                     <Text style={styles.textoPadrao} >Ainda não tem cadastro? </Text>
                 <TouchableHighlight onPress={() => Actions.TelaCadastroUsuario() }>
                     <Text style ={{fontSize: 20, textDecorationLine: 'underline', color: '#000000'} }>Cadastre-se</Text>

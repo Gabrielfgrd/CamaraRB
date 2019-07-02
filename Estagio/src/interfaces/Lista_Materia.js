@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import{ScrollView} from 'react-native';
+import{ScrollView,View,TouchableOpacity,Text} from 'react-native';
 import axios from 'axios';
 import Materia_Legislativa from './Materia_Legislativa';
+import {styles, colors} from '../Components/layout';
 
 
 
@@ -39,6 +40,15 @@ export default class Lista_Materia extends React.Component {
         return (
             <ScrollView>
               {this.state.tipo_materia.map(item =>   ( <Materia_Legislativa key={item.ementa} materia={item} /> ) ) }
+              <View style={{flex: 1, alignItems: 'center',justifyContent: 'center', marginTop: 30, flexDirection: 'row',justifyContent: 'space-around'}}>
+						<TouchableOpacity
+						OnPress={ ()=>{ }}
+						style={styles.botao}>
+						<Text style={styles.textoBotao}> 1 </Text>
+						</TouchableOpacity>
+                       
+                       
+					</View>
             </ScrollView>
         );
     }

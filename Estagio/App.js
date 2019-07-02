@@ -8,6 +8,7 @@ import {Provider} from 'react-redux'
 import reducers from './reducers'
 
   import Lista_Materia from './src/interfaces/Lista_Materia';
+  import GaleriaDeVideos from './src/interfaces/GaleriaDeVideos';
 
   const criaTiposDeProblema = () => {
     var titulos = ["Estrutura Viária", "Iluminação Pública", "Rede de Distribuição de Água", "Rede Elétrica", "Rede de Esgoto"]
@@ -31,17 +32,18 @@ import reducers from './reducers'
 
 export default class Estagio extends Component{
   constructor(props) {
-		super(props)
-		var config = {
-			apiKey: "AIzaSyCy7su1rlTXnMv536mpZ46TA3Xi7rKu9aNI",
+    super(props)
+    var firebaseConfig = {
+      apiKey: "AIzaSyCy7su1rlTXnMv536mpZ4TA3Xi7rKu9aNI",
       authDomain: "camararb-f6e02.firebaseapp.com",
       databaseURL: "https://camararb-f6e02.firebaseio.com",
       projectId: "camararb-f6e02",
       storageBucket: "camararb-f6e02.appspot.com",
       messagingSenderId: "923387632369",
       appId: "1:923387632369:web:2c5f88377c7a9d6d"
-		};
-		firebase.initializeApp(config);
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 	}
   render() {
     return (

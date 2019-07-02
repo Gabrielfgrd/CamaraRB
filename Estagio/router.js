@@ -15,6 +15,8 @@ import TelaAlteraDadosUsuario from './src/interfaces/TelaAlteraDadosUsuario'
 import TelaAlteraSenhaUsuario from './src/interfaces/TelaAlteraSenhaUsuario'
 import Materia_Legislativa from './src/interfaces/Materia_Legislativa'
 import TelaCarregamento from './src/interfaces/TelaCarregamento'
+import GaleriaDeVideos from './src/interfaces/GaleriaDeVideos';
+import YouTubeVideo from './src/interfaces/YouTubeVideo';
 
 
 export default class routes extends React.Component {
@@ -26,10 +28,15 @@ export default class routes extends React.Component {
 					key="root"
 					navBarButtonColor={'#FFFFFF'}
 					headerLayoutPreset='center'>
+						<Scene
+						title='Galeria de Vídeos'
+						key='GaleriaDeVideo'
+						component={GaleriaDeVideos} />
 				<Scene
 					hideNavBar
 					key="TelaCarregamento"
 					component={TelaCarregamento} />
+
 					<Drawer
 						hideNavBar
 						key="MenuExterno"
@@ -102,6 +109,11 @@ export default class routes extends React.Component {
 						title='Tela Carregamento'
 						key='TelaCarregamento'
 						component={TelaCarregamento} />
+					
+					<Scene
+						title='Vídeo'
+						key='YouTubeVideo'
+						component={YouTubeVideo} />
 				</Scene>
 			</Router>
 		);

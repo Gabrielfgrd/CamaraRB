@@ -138,6 +138,8 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-youtube')
+    implementation project(':react-native-youtube')
     implementation project(':react-native-view-pdf')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')

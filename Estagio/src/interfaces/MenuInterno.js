@@ -43,7 +43,7 @@ export default class MenuInterno extends React.Component {
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<MaterialCommunityIcons name="tooltip-plus-outline" size={20} color={colors.branco} /> Cadastrar Problemas</Text>
 					</TouchableOpacity>
-                    <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {  }}>
+                    <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {  Actions.GaleriaDeVideos() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Foundation name="play-video" size={20} color={colors.branco} /> Vídeos</Text>
 					</TouchableOpacity>

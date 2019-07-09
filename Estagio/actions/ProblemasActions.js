@@ -142,6 +142,34 @@ export const recuperaTodosOsProblemas = () => {
         })
     }
 }
+//recuperação do problema pelo id passado como parametro
+export const recuperaProblema = (id) => {
+    return dispatch => {
+        firebase.database().ref('problemas').child(id).on('value', (snapshort) => {
+            var problema = snapshort.val()
+            var QueryNomeAutor = '', QueryTituloTipo = ''
+            var idDoAutor = problema.autorId, idDoTipo = problema.tipoDeProblemaId;
+            //buscar o nome do autor
+            firebase.database().ref('users/' + idDoAutor).on('value', (snapshortAutor) => {
+                QueryNomeAutor = snapshortAutor.val().nomeUsuario
+                firebase.database().ref('tiposDeProblemas/' + idDoTipo).on('value', (snapshortTipo) => {
+                    QueryTituloTipo = snapshortTipo.val().titulo
+                    dispatch({
+                        type: 'carregamento_problema_sucesso',
+                        payload: problema,
+                        nomeAutor: QueryNomeAutor,
+                        tituloTipo: QueryTituloTipo
+                    })
+                })
+            })
+            //buscar o titulo do tipo de problema
+            if(firebase.auth().currentUser == null){
+                Actions.TelaExibicaoProblema()
+            }
+        })
+    }
+}
+
 //limpa todas as informações presentes nos reducers
 export const limpaTodosOsDados = () => {
     return dispatch => {

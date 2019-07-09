@@ -9,9 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import YouTube from 'react-native-youtube';
-import {StackNavigator} from 'react-navigation'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import YouTubeVideo from './YouTubeVideo'
 import { Actions } from 'react-native-router-flux';
 import { modificaId, modificaVideoId } from '../../actions/YouTubeActions'

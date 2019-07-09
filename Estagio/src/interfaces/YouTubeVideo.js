@@ -82,22 +82,6 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
               </TouchableOpacity>
             </View>
     
-            {/* Previous / Next video */}
-            <View style={styles.buttonGroup}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => this._youTubeRef && this._youTubeRef.previousVideo()}
-              >
-                <Text style={styles.buttonText}>Previous Video</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => this._youTubeRef && this._youTubeRef.nextVideo()}
-              >
-                <Text style={styles.buttonText}>Next Video</Text>
-              </TouchableOpacity>
-            </View>
-    
             {/* Go To Specific time in played video with seekTo() */}
             <View style={styles.buttonGroup}>
               <TouchableOpacity
@@ -119,40 +103,7 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                 <Text style={styles.buttonText}>15 Minutes</Text>
               </TouchableOpacity>
             </View>
-    
-            {/* Play specific video in a videoIds array by index */}
-            {this._youTubeRef &&
-              this._youTubeRef.props.videoIds &&
-              Array.isArray(this._youTubeRef.props.videoIds) && (
-                <View style={styles.buttonGroup}>
-                  {this._youTubeRef.props.videoIds.map((videoId, i) => (
-                    <TouchableOpacity
-                      key={i}
-                      style={styles.button}
-                      onPress={() => this._youTubeRef && this._youTubeRef.playVideoAt(i)}
-                    >
-                      <Text style={[styles.buttonText, styles.buttonTextSmall]}>{`Video ${i}`}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              )}
-    
-            {/* Get current played video's position index when playing videoIds (and playlist in iOS) */}
-            <View style={styles.buttonGroup}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() =>
-                  this._youTubeRef &&
-                  this._youTubeRef
-                    .videosIndex()
-                    .then(index => this.setState({ videosIndex: index }))
-                    .catch(errorMessage => this.setState({ error: errorMessage }))
-                }
-              >
-                <Text style={styles.buttonText}>Get Videos Index: {this.state.videosIndex}</Text>
-              </TouchableOpacity>
-            </View>
-    
+
             {/* Fullscreen */}
             {!this.state.fullscreen && (
               <View style={styles.buttonGroup}>
@@ -161,28 +112,6 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                   onPress={() => this.setState({ fullscreen: true })}
                 >
                   <Text style={styles.buttonText}>Set Fullscreen</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-    
-            {/* Update Progress & Duration (Android) */}
-            {Platform.OS === 'android' && (
-              <View style={styles.buttonGroup}>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() =>
-                    this._youTubeRef
-                      ? this._youTubeRef
-                          .currentTime()
-                          .then(currentTime => this.setState({ currentTime }))
-                          .catch(errorMessage => this.setState({ error: errorMessage }))
-                      : this._youTubeRef
-                          .duration()
-                          .then(duration => this.setState({ duration }))
-                          .catch(errorMessage => this.setState({ error: errorMessage }))
-                  }
-                >
-                  <Text style={styles.buttonText}>Update Progress & Duration (Android)</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -212,8 +141,8 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                     style={styles.button}
                     onPress={() =>
                       YouTubeStandaloneAndroid.playVideo({
-                        apiKey: 'YOUR_API_KEY',
-                        videoId: 'KVZ-P-ZI6W4',
+                        apiKey: 'AIzaSyCXkounaFYa0pwVrPvFwyD41lHiRRbbYrg',
+                        videoId: this.props.videoId[id] ,
                         autoplay: true,
                         lightboxMode: false,
                         startTime: 124.5,
@@ -228,8 +157,8 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                     style={styles.button}
                     onPress={() =>
                       YouTubeStandaloneAndroid.playVideos({
-                        apiKey: 'YOUR_API_KEY',
-                        videoIds: ['HcXNPI-IPPM', 'XXlZfc1TrD0', 'czcjU1w-c6k', 'uMK0prafzw0'],
+                        apiKey: 'AIzaSyCXkounaFYa0pwVrPvFwyD41lHiRRbbYrg',
+                        videoIds: this.props.videoId[id] ,
                         autoplay: false,
                         lightboxMode: true,
                         startIndex: 1,
@@ -245,7 +174,7 @@ import { YouTubeStandaloneAndroid } from 'react-native-youtube';
                     style={styles.button}
                     onPress={() =>
                       YouTubeStandaloneAndroid.playPlaylist({
-                        apiKey: 'YOUR_API_KEY',
+                        apiKey: 'AIzaSyCXkounaFYa0pwVrPvFwyD41lHiRRbbYrg',
                         playlistId: 'PLF797E961509B4EB5',
                         autoplay: false,
                         lightboxMode: false,

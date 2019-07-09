@@ -9,6 +9,7 @@ import reducers from './reducers'
 
   import Lista_Materia from './src/interfaces/Lista_Materia';
   import GaleriaDeVideos from './src/interfaces/GaleriaDeVideos';
+  import CenaPrincipal from './src/interfaces/CenaPrincipal';
 
   const criaTiposDeProblema = () => {
     var titulos = ["Estrutura Viária", "Iluminação Pública", "Rede de Distribuição de Água", "Rede Elétrica", "Rede de Esgoto"]
@@ -48,7 +49,7 @@ export default class Estagio extends Component{
   render() {
     return (
   
-      // <Lista_Materia/>
+      //  <CenaPrincipal/>
         <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
 			  	<Routes />
 			  </Provider>

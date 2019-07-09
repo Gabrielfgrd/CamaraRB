@@ -35,7 +35,7 @@ export default class Menu extends React.Component {
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Foundation name="book-bookmark" size={20} color={colors.branco} /> Sistema de Apoio ao Processo Legislativo</Text>
 					</TouchableOpacity>
-                    <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => {  }}>
+                    <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.GaleriaDeVideos() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Foundation name="play-video" size={20} color={colors.branco} /> Vídeos</Text>
 					</TouchableOpacity>

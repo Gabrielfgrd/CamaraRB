@@ -28,10 +28,7 @@ export default class routes extends React.Component {
 					key="root"
 					navBarButtonColor={'#FFFFFF'}
 					headerLayoutPreset='center'>
-						<Scene
-						title='Galeria de Vídeos'
-						key='GaleriaDeVideo'
-						component={GaleriaDeVideos} />
+					
 				<Scene
 					hideNavBar
 					key="TelaCarregamento"
@@ -106,10 +103,9 @@ export default class routes extends React.Component {
 						key='Lista_Materia'
 						component={Lista_Materia} />
 						<Scene
-						title='Tela Carregamento'
-						key='TelaCarregamento'
-						component={TelaCarregamento} />
-					
+						title='Galeria de Vídeos'
+						key='GaleriaDeVideos'
+						component={GaleriaDeVideos} />
 					<Scene
 						title='Vídeo'
 						key='YouTubeVideo'

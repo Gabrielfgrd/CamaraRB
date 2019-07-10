@@ -59,7 +59,7 @@ export default class MenuInterno extends React.Component {
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Ionicons name="ios-information-circle-outline" size={20} color={colors.branco} /> Sobre</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
+					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.CamaraAoVivo() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<MaterialIcons name="live-tv" size={20} color={colors.branco} /> Câmara ao Vivo</Text>
 					</TouchableOpacity>

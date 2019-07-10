@@ -1,3 +1,4 @@
+import { Actions } from 'react-native-router-flux'
 import _ from 'lodash';
 
 export const modificaId = (texto) => {

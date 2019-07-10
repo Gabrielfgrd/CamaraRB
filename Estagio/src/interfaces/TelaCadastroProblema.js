@@ -4,13 +4,27 @@ import { Text, View, ScrollView, Picker, TouchableOpacity, TextInput} from 'reac
 import {styles, colors} from '../Components/layout';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { modificaTipoDeProblemaId, modificaDescricao, modificaDataCriacao, modificaBairro,modificaRua,  inclusaoProblema, recuperaTiposDeProblemas } from '../../actions/ProblemasActions';
+import { 
+	modificaTipoDeProblemaId, 
+	modificaDescricao, 
+	modificaDataCriacao, 
+	modificaBairro,modificaRua,  
+	inclusaoProblema, 
+	recuperaTiposDeProblemas 
+} from '../../actions/ProblemasActions';
+import Botao from '../Components/Botao'
+
 
 
 
 class TelaCadastroProblema extends React.Component {
 			constructor(props) {
-				super(props);
+				super(props)
+				this.state={
+					msgTipoDeProblema: '',
+					msgBairro: '', 
+					msgRua: '',
+				}
 				this.props.recuperaTiposDeProblemas()
 				now = new Date
 				this.props.modificaDataCriacao(now.getDate() + '/' + (now.getMonth()+1) + '/' + now.getFullYear())
@@ -28,6 +42,41 @@ class TelaCadastroProblema extends React.Component {
 				}
 			}
 
+			validaRua(){
+				if(this.props.rua== ''){
+					this.setState({msgRua: 'O campo rua está vazio'})
+					return false;
+				}else{
+					this.setState({msgRua: ''})
+					return true
+				}
+			}
+
+			validaBairro(){
+				if(this.props.bairro==''){
+					this.setState({msgBairro: 'O campo bairro está vazio'})
+					return false;
+				}else{
+					this.setState({msgBairro: ''})
+					return true
+				}
+			}
+
+			validaTipoDeProblema(){
+				if(this.props.tipoDeProblema == ''){
+				this.setState({msgEndereco: 'O campo Tipo de Problema está vazio'})
+				return false;
+			}else{
+				this.setState({msgTipoDeProblema: ''})
+				return true
+			}
+		}
+		verificaCadastro() {
+			var v1 = this.validaBairro(), v2= this.validaRua(), v3= this.validaTipoDeProblema();
+			if(v1 && v2  && v3  ){
+				this.props.inclusaoProblema(this.props.bairro, this.props.rua, this.props.tipoDeProblema);
+			}
+		}
 	render(){
 
 		return(
@@ -60,11 +109,7 @@ class TelaCadastroProblema extends React.Component {
 						<TextInput maxLength={200}  value={this.props.descricao} multiline={true} style={styles.textArea} placeholder='Descreva o Problema' onChangeText={texto => this.props.modificaDescricao(texto)}/>
 					</View>
 					<View style={{flex: 1, alignItems: 'center',justifyContent: 'center', marginTop: 30}}>
-						<TouchableOpacity
-						OnPress={ ()=>{this._inclusaoDeProblema(); }}
-						style={styles.botao}>
-						<Text style={styles.textoBotao}> Inserir Problema </Text>
-						</TouchableOpacity>
+					<Botao texto='Inserir problema' onPress={() => { this._inclusaoDeProblema() }} />
 					</View>
 				</ScrollView>
 			

@@ -17,7 +17,7 @@ import Materia_Legislativa from './src/interfaces/Materia_Legislativa'
 import TelaCarregamento from './src/interfaces/TelaCarregamento'
 import GaleriaDeVideos from './src/interfaces/GaleriaDeVideos';
 import YouTubeVideo from './src/interfaces/YouTubeVideo';
-
+import CamaraAoVivo from './src/interfaces/CamaraAoVivo';
 
 export default class routes extends React.Component {
 	render() {
@@ -110,6 +110,11 @@ export default class routes extends React.Component {
 						title='Vídeo'
 						key='YouTubeVideo'
 						component={YouTubeVideo} />
+					<Scene
+						title='Câmara ao Vivo'
+						key='CamaraAoVivo'
+						component={CamaraAoVivo} />
+
 				</Scene>
 			</Router>
 		);

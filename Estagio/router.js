@@ -102,7 +102,7 @@ export default class routes extends React.Component {
 						title='Matérias Legislativas'
 						key='Lista_Materia'
 						component={Lista_Materia} />
-						<Scene
+					<Scene
 						title='Galeria de Vídeos'
 						key='GaleriaDeVideos'
 						component={GaleriaDeVideos} />

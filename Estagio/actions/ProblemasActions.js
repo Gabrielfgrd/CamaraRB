@@ -105,7 +105,8 @@ export const recuperaTiposDeProblemas = () => {
 //inclusão de problema
 export const inclusaoProblema = ({ descricao, tipoDeProblemaId, dataCriacao, bairro, rua }) => {
     return dispatch => {
-        novoProblema = firebase.database().ref('problemas/').push()
+        user = firebase.auth().currentUser;
+        novoProblema = firebase.database().ref().child('/problemas').push()
         novoProblema.set({
             id: novoProblema.key,
             autorId: firebase.auth().currentUser.uid,

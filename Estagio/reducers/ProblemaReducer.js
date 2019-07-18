@@ -135,8 +135,6 @@ export default (state = INITIAL_STATE, action) => {
                 ediTituloTipoProblema: action.tituloTipoProblema
                 }
         case 'carregamento_problema_sucesso':
-            state.denuncias = _.values(action.payload.denuncias)   
-            state.avaliacoes = _.values(action.payload.avaliacoes)
         return {
             ...state,
             id: action.payload.id,
@@ -146,7 +144,6 @@ export default (state = INITIAL_STATE, action) => {
             dataCriacao: action.payload.dataCriacao,
             bairro: action.payload.bairro,
             rua: action.payload.rua,
-            
             
             nomeAutor: action.nomeAutor,
             tituloTipoProblema: action.tituloTipo

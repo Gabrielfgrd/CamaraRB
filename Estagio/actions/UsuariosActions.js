@@ -121,12 +121,15 @@ export const autenticaUsuario = ({ email, senha }) => {
 					.then(() => {
 						firebase.database().ref('users/' + firebase.auth().currentUser.uid).on('value', (snapshort) => {
 							const dados = snapshort.val()
-							Actions.MenuInterno()
+							
 							dispatch({
 								type: constUsuario.autenticacaoSucesso,
 								id: firebase.auth().currentUser.uid,
 								payload: dados,
 								email: firebase.auth().currentUser.email
+							})
+							.then(() => {
+								Actions.MenuInterno()
 							})
 						})
 					})

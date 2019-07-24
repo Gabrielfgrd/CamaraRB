@@ -110,7 +110,7 @@ class TelaCadastroUsuario extends React.Component {
                     <Text style={styles.textoPadrao} >Endereço</Text>
                     <TextInput style={styles.textInput} value={this.props.endereco} placeholder = "Endereço" onChangeText={texto => this.props.modificaEndereco(texto)}/>
                     <Text style={styles.textoAviso} >{this.state.msgEndereco}</Text>
-                    <Text style={styles.textoPadrao} >CEP</Text>
+                    <Text style={styles.textoPadrao} >CPF</Text>
                     <TextInputMask
 							value={this.props.cpf} style={styles.textInput} placeholder="CPF"
 							refInput={ref => { this.input = ref }}

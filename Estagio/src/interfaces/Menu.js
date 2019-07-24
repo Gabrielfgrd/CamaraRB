@@ -27,10 +27,10 @@ export default class Menu extends React.Component {
 					</TouchableOpacity>
 				</View>	
 					<View style={{justifyContent:'center', borderTopWidth: 1, borderColor: '#FFFFFF', marginTop: 20}}>
-					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.Leis() }}>
+					{/* <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.Leis() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}> 
 						<Ionicons name="md-paper" size={20} color={colors.branco} /> Leis </Text>
-					</TouchableOpacity>
+					</TouchableOpacity> */}
 					<TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { Actions.SAPL() }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Foundation name="book-bookmark" size={20} color={colors.branco} /> Sistema de Apoio ao Processo Legislativo</Text>
@@ -39,10 +39,10 @@ export default class Menu extends React.Component {
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<Foundation name="play-video" size={20} color={colors.branco} /> Vídeos</Text>
 					</TouchableOpacity>
-                    <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
+                    {/* <TouchableOpacity style={{justifyContent: 'center', marginLeft: 30, marginTop: 20}} onPress={() => { }}>
 						<Text style={{ fontSize: 20, color: '#FFFFFF', }}>
 						<MaterialCommunityIcons name="image-filter" size={20} color={colors.branco} /> Fotos</Text>
-					</TouchableOpacity>
+					</TouchableOpacity> */}
 					
 				
 				</View>

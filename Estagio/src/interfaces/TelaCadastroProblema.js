@@ -21,6 +21,7 @@ class TelaCadastroProblema extends React.Component {
 			msgTipoDeProblema: '',
 			msgBairro: '',
 			msgRua: '',
+			tipoDeProblemaSelecionado:this.props.tiposDeProblemas.id,
 			// tipoDeProblemaSelecionado: this.props.tiposDeProblemas[0].id
 		}
 		this.props.recuperaTiposDeProblemas()
@@ -28,6 +29,8 @@ class TelaCadastroProblema extends React.Component {
 		this.props.modificaDataCriacao(now.getDate() + '/' + (now.getMonth() + 1) + '/' + now.getFullYear())
 		// this.props.modificaTipoDeProblemaId(this.props.tiposDeProblemas[0].id)
 		// this.props.modificaTipoDeProblemaId(this.props.tipoDeProblema[0].id)
+		this.props.modificaTipoDeProblemaId(this.props.tiposDeProblemas.id)
+		console.log(this.state.tipoDeProblemaSelecionado)
 	}
 
 
@@ -81,7 +84,7 @@ class TelaCadastroProblema extends React.Component {
 				<View style={{ flex: 2, alignItems: 'center', marginTop: 15, fontSize: 20 }}>
 					<Text style={styles.textoPadrao}>Tipo de problema:</Text>
 					<Picker
-						selectedValue={"-LiKzVMuPfByV9xDjX3Y"}
+						selectedValue={this.state.tipoDeProblemaSelecionado}
 						onValueChange={(itemValue) => {
 							this.setState({ tipoDeProblemaSelecionado: itemValue })
 							this.props.modificaTipoDeProblemaId(itemValue)

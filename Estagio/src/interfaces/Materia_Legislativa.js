@@ -7,58 +7,9 @@ import List from 'react-native-elements';
 import { FlatList } from 'react-native-gesture-handler';
 
 export default class Materia_Legislativa extends React.Component {
-    //   constructor (){
-    //     super();
-    //     this.state= {
-    //         isLoading: false, 
-    //         page: 1,
-    //         refreshing: false,
-    //         isRefreshing: false,
-    //         dataSource:[]
-    //     }
-    // }
-    // handleLoadMore =()=>{
-    //     this.setState({
-    //         page:this.stage.page+1
-    //     }, () => {
-    //         this.loadDataSource();
-    //     })
-    // }
-    // loadDataSource = () => {
-    //     const (page, dataSource) = this.state;
-    //     this.setState({ isLoading: true});
-
-    //     fetch('https://sapl.riobranco.ac.leg.br/api/materia/materialegislativa/?&page=$(page)&pagination=30')
-    //     .then(res => res.json())
-    //     .then(res => {
-    //         this.setState({
-    //             dataSource: page ===1 ? res.pagination:  {...dataSource,... res.pagination},
-    //             isRefreshing : false,
-    //         });
-    //     })
-    //     .cath(err =>{
-    //         console.error(err);
-    //     });
-    // };
-
-  
-
-    // componentDidMount(){
-    //    fetch('https://sapl.riobranco.ac.leg.br/api/materia/materialegislativa/').
-    //    then(response) => response.json()
-    // }
-  
-
+ 
     render(){
         return (
-
-    //      <List>
-    //          <FlatListdata = {dataSource}
-    //          renderItem= {((item)) =>(
-               
-
-    //          )}
-    //      </List>
 
             <ScrollView style = {styles2.item}>
                 <View style ={styles2.detalhes}>

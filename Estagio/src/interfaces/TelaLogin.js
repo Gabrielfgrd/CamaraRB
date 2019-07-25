@@ -35,7 +35,7 @@ class TelaLogin extends React.Component {
                 <View style ={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
                     <TouchableOpacity
                         style={styles.botao}
-                        onPress={()=>{Actions.MenuInterno()}}>
+                        onPress={()=>{ this._autenticaUsuario()}}>
                         <Text style={styles.textoBotao}> Entrar </Text>
                     </TouchableOpacity>
                 </View>

@@ -4,12 +4,12 @@ import {constUsuario} from '../constantes'
 const INITIAL_STATE = {
     //valores normais
     id: '',
-    nome: 'Teste',
-    endereco: 'Rua do Teste',
-    cpf: '11111111111',
-    email: 'teste@teste.com',
-    senha: '123456',
-    senha2: '123456',
+    nome: '',
+    endereco: '',
+    cpf: '',
+    email: '',
+    senha: '',
+    senha2: '',
     //valores de edição
     ediNome: '',
     ediEndereco: '',

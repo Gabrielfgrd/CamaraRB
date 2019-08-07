@@ -1,29 +1,35 @@
-import React, { Component } from 'react';
-import {  Text, View,ScrollView, TouchableOpacity } from 'react-native';
-
+import React from 'react';
+import { Text, View, ScrollView, TouchableOpacity, FlatList,StyleSheet, SafeAreaView,Linking,Button} from 'react-native';
+import {List, ListItem} from 'react-native-elements';
 import axios from 'axios';
 import Noticia from '../Components/Noticia';
 import { Actions } from 'react-native-router-flux';
 
-function organizaNoticias(lista_noticias) {
-  const noticias = lista_noticias;
-  const noticiasOrganizadas = [];
+
+
+function organizaNoticias(lista_noticias, ref) {
+  var noticias = lista_noticias;
+  var noticiasOrganizadas = [];
   noticias.map(noticia => {
     let temp_noticia = {};
-    noticia.children.map(children => { 
+    noticia.children.map(children => {
       if (children.name == 'title') { temp_noticia.title = children.value }
       if (children.name == 'link') { temp_noticia.link = children.value }
-      if (children.name == 'dc:date') { temp_noticia.date = children.value } 
+      if (children.name == 'dc:date') { temp_noticia.date = children.value }
     });
     if (temp_noticia) {
-        noticiasOrganizadas.push(temp_noticia);
-      }
+      noticiasOrganizadas.push(temp_noticia);
+    }
   });
-  console.log(noticiasOrganizadas)
-  this.setState({ noticias: noticiasOrganizadas})
+  //  console.log(noticiasOrganizadas)
+  ref.setState({ noticias:  noticiasOrganizadas });
+  // console.log(ref.state.noticias)
+  
+  
+
 }
 
-export default class CenaPrincipal extends Component {
+export default class CenaPrincipal extends React.Component {
 
   constructor() {
     super()
@@ -40,11 +46,10 @@ export default class CenaPrincipal extends Component {
     axios.get('http://www.riobranco.ac.leg.br/institucional/noticias/RSS')
       .then(response => {
         var xml = new XMLParser().parseFromString(response.data);
-        
-        organizaNoticias( xml["children"]);
-        console.log(xml["children"])
+        organizaNoticias(xml["children"], this);
+        // console.log(xml["children"])
       })
-      // .catch(() => { console.log('Erro ao recuperar os dados'); });
+    //  .catch(() => { console.log('Erro ao recuperar os dados'); });
   }
 
   // <Text>Noticias</Text>
@@ -59,25 +64,54 @@ export default class CenaPrincipal extends Component {
   // })}
   render() {
     return (
-      <View>
-        {/* {this.state.noticias.map( function(item) { console.log(item.title) } )} */}
-        {/* <ScrollView>
-          {this.state.noticias.map(item => (<Noticia key={item.ementa} materia={item} />))}
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 30, flexDirection: 'row', justifyContent: 'space-around' }}>
-            <TouchableOpacity
-              OnPress={() => { Actions.tipo_materia(item.page) }}
-              style={styles.botao}>
-              <Text style={styles.textoBotao}> Carregar Mais </Text>
-            </TouchableOpacity>
-
-          </View>
-        </ScrollView> */}
-      </View>
-    )
+      <SafeAreaView>
+      <FlatList
+        data ={this.state.noticias}
+        keyExtractor = {item => item.title}
+        renderItem = {({ item})  =>  {
+          if(item.title == "Notícias"){
+            return (
+              <View style={styles.body} >
+                <Text style={{ color: 'rgb(43, 83, 142)', fontSize: 40 }}>{item.title}</Text>
+              </View>
+            );
+          }else{
+            return (
+              <View style={styles.item} >
+                <TouchableOpacity 
+                onPress = {() => Linking . openURL ( item.link )}>
+                  <Text >{item.title}</Text>
+                  <Text> {item.date} </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }
+        }}
+      />
+    </SafeAreaView>
+     
+    );
   }
 
-}
+} 
+{/* <ScrollView>
+        {this.state.noticias.map(item =>  (<Noticia key={item.title} news={item} />))}
+        {this.state.noticias.map(item =>  (<Text key={item.title}>{item.link}</Text>))}
+        {this.state.noticias.map(item =>  (<Text key={item.title}>{item.date}</Text>))}
 
+
+      </ScrollView> */}
+{/* <FlatList
+        data={this.state.noticias}
+        renderItem={
+          ({item}) => 
+          <Text>
+            {item.title }
+          </Text> */}
+// }
+///>
+
+{/* {this.state.noticias.map( function(item) { console.log(item) } )} */ }
 
 
 // export default class CenaPrincipal extends Component {
@@ -134,5 +168,42 @@ export default class CenaPrincipal extends Component {
 // //   }
 // // }
 
+const styles = StyleSheet.create({
+  // container:{
+  //     flex:1
+  // },
+  body: {
+      flex:1,
+      backgroundColor: '#fff',
+      // alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: 30
+  },
+  item: {
+    flex:1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    padding: 30
+  }
+  // vids:{
+  //     paddingBottom:30,
+  //     width:320,
+  //     alignItems: 'center',
+  //     backgroundColor: '#fff',
+  //     justifyContent: 'center',
+  //     borderBottomWidth: 0.6,
+  //     borderColor: '#aaa'
 
+  // },
+  // vidItems:{
+  //     flexDirection: 'row',
+  //     alignItems: 'center',
+  //     justifyContent: 'space-around',
+  //     padding: 10
+  // },
+  // vidText:{
+  //     padding: 20,
+  //     color: '#000'
+  // },
+  })
 

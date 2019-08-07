@@ -56,21 +56,21 @@ class TelaAlteraSenhaUsuario extends React.Component {
 		return (
 			<ScrollView style={{ padding: 10 }}>
 				<View style={{ justifyContent: 'center', marginTop: 15 }}>
-					<View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+					{/* <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
 						<Text style={styles.textoPadrao} >Senha Atual</Text>
 						<TextInput style={styles.textInput} editable={true} />
-					</View>
+					</View> */}
 					<View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
 						<Text style={styles.textoPadrao}  >Nova Senha</Text>
 						<TextInput value={this.props.ediSenha} secureTextEntry={true} maxLength={10} style={styles.textInput} editable={true} placeholder="Pelo menos 6 caracteres" onChangeText={texto => this.props.modificaEdiSenha(texto)} />
 					</View>
 					<View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
 						<Text style={styles.textoPadrao} >Confirmar a senha</Text>
-						<TextInput  value={this.props.ediSenha2} secureTextEntry={true} maxLength={10} style={styles.textInput} editable={true} placeholder="Pelo menos 6 Caracteres" onChangeText={texto => this.props.modificaEdiSenha2(texto)} />
+						<TextInput value={this.props.ediSenha2} secureTextEntry={true} maxLength={10} style={styles.textInput} editable={true} placeholder="Pelo menos 6 Caracteres" onChangeText={texto => this.props.modificaEdiSenha2(texto)} />
 					</View>
 				</View>
 				<View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20, marginBottom: 40 }}>
-				<Botao texto='Confirmar' onPress={() => { this.editaSenha() }} />
+					<Botao texto='Confirmar' onPress={() => { this.editaSenha() }} />
 				</View>
 			</ScrollView>
 

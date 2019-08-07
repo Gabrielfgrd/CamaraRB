@@ -1,0 +1,26 @@
+html{
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+form{
+  padding: 20px;
+  margin-top: 60px;
+}
+form button, form h5{
+    margin: 20px 0;
+    justify-content: center;
+}
+input[type=text]:not(.browser-default):focus:not([reandonly]),
+input[type=email]:not(.browser-default):focus:not([reandonly]),
+input[type=password]:not(.browser-default):focus:not([reandonly]),
+textarea.materialize-textarea:focus:not([reandoly]){
+  border-color: rgb(43, 83, 142) ;
+  box-shadow: none;
+}

@@ -4,7 +4,7 @@ import "@firebase/database";
 import '@firebase/storage'
 import { Actions } from 'react-native-router-flux'
 import _ from 'lodash';
-import {constUsuario} from '../constantes'
+import { constUsuario } from '../constantes'
 
 
 //modificação de valores normais ================
@@ -98,7 +98,7 @@ export const cadastraUsuario = (nome, endereco, cpf, email, senha) => {
 					{
 						type: 'cadastro_sucesso'
 					}
-				) 
+				)
 			})
 			.catch((erro) => {
 				alert("Erro ao realizar cadastro, " + erro.message)
@@ -106,7 +106,7 @@ export const cadastraUsuario = (nome, endereco, cpf, email, senha) => {
 					{
 						type: 'cadastro_erro'
 					}
-				) 
+				)
 			})
 	}
 }
@@ -121,25 +121,25 @@ export const autenticaUsuario = ({ email, senha }) => {
 					.then(() => {
 						firebase.database().ref('users/' + firebase.auth().currentUser.uid).on('value', (snapshort) => {
 							const dados = snapshort.val()
-							
+
 							dispatch({
 								type: constUsuario.autenticacaoSucesso,
 								id: firebase.auth().currentUser.uid,
 								payload: dados,
 								email: firebase.auth().currentUser.email
 							})
+						})
 							.then(() => {
 								Actions.MenuInterno()
 							})
-						})
 					})
-					.catch(erro => { 
+					.catch(erro => {
 						Actions.TelaLogin();
 						alert('Falha ao realizar login, verifique seu e-mail e senha e tente novamente.')
 						dispatch({
 							type: 'autenticacao_erro'
 						})
-					 })
+					})
 			})
 			.catch(function (error) {
 				// Handle Errors here.
@@ -152,8 +152,8 @@ export const autenticaUsuario = ({ email, senha }) => {
 export const editaSenha = (senha) => {
 	return dispatch => {
 		firebase.auth().currentUser.updatePassword(senha)
-						.then(() => { alert('Senha alterada com sucesso'); Actions.TelaConfiguracoesConta()})
-						.catch(erro => { alert(erro.message); Actions.TelaAlteraSenha() })
+			.then(() => { alert('Senha alterada com sucesso'); Actions.TelaConfiguracoesConta() })
+			.catch(erro => { alert(erro.message); Actions.TelaAlteraSenha() })
 		dispatch({
 			type: 'senhinha'
 		})
@@ -164,9 +164,9 @@ export const igualaDadosEdicao = () => {
 		type: constUsuario.igualaDadosEdicao
 	}
 }
-export const editaDadosUsuario = ( ediNome, ediEndereco, ediCpf, ediEmail) => {
+export const editaDadosUsuario = (ediNome, ediEndereco, ediCpf, ediEmail) => {
 	const novoNome = ediNome, novoEndereco = ediEndereco, novoCPF = ediCpf, novoEmail = ediEmail
-	
+
 	return dispatch => {
 		firebase.auth().currentUser.updateEmail(novoEmail)
 			.then(() => {
@@ -181,7 +181,7 @@ export const editaDadosUsuario = ( ediNome, ediEndereco, ediCpf, ediEmail) => {
 					type: constUsuario.edicaoSucesso
 				})
 			})
-			.catch(erro => {Alert(erro.message) })
+			.catch(erro => { Alert(erro.message) })
 	}
 }
 export const autologin = () => {

@@ -30,6 +30,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   }
 });
+
+const mapStateToProps = state => (
+    {
+        videoId: state.YouTubeReducer.videoId,
+        id: state.YouTubeReducer.id
+    }
+)
+
+export default connect(mapStateToProps, {
+
+})(YouTubeVideo);
+
 // import React from 'react';
 // import {StyleSheet,
 //     View,
@@ -394,14 +406,3 @@ const styles = StyleSheet.create({
 // // })
      
     
-
-const mapStateToProps = state => (
-    {
-        videoId: state.YouTubeReducer.videoId,
-        id: state.YouTubeReducer.id
-    }
-)
-
-export default connect(mapStateToProps, {
-
-})(YouTubeVideo);

@@ -28,7 +28,6 @@ export default class routes extends React.Component {
 					key="root"
 					navBarButtonColor={'#FFFFFF'}
 					headerLayoutPreset='center'>
-					
 				<Scene
 					hideNavBar
 					key="TelaCarregamento"
@@ -48,6 +47,11 @@ export default class routes extends React.Component {
 							key='CenaPrincipalExterna'
 							component={CenaPrincipal} />
 					</Drawer>
+					<Scene
+						title='Login'
+						headerLayoutPreset='center'
+						key='TelaLogin'
+						component={TelaLogin} />
 					<Drawer
 						hideNavBar
 						key="MenuInterno"
@@ -70,10 +74,10 @@ export default class routes extends React.Component {
 						title='Cadastro de Usuário'
 						key='TelaCadastroUsuario'
 						component={TelaCadastroUsuario} />
-					<Scene
+					{/* <Scene
 						title='Legislação do Municipio'
 						key='Leis'
-						component={Leis} />
+						component={Leis} /> */}
 					<Scene
 						title='Cadastro de Problema'
 						key='TelaCadastroProblema'

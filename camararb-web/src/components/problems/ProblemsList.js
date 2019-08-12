@@ -1,17 +1,14 @@
 import React from 'react';
 import ProblemsSummary from './ProblemsSummary'
 
-const ProblemsList = () => {
+const ProblemsList = ({problems}) => {
     return (
         <div className="seção lista-Problemas">
-            <ul className="center">
-            <ProblemsSummary />
-            <ProblemsSummary />
-            <ProblemsSummary />
-            <ProblemsSummary />
-            <ProblemsSummary />
-            <ProblemsSummary />
-            </ul>
+          {problems && problems.map(problem => {
+            return(
+                <ProblemsSummary problem={problem} key={problem.id}/>
+            )
+          })}
         </div>
     )
 }
